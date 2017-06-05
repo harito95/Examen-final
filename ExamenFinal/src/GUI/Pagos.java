@@ -21,10 +21,13 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Pagos extends JFrame {
 
 	private JPanel contentPane;
+	private JPanel pprecioapagar;
 	private Controlador controlador;
 	private JTextField txhorainicio;
 	private JTextField txhorafin;
@@ -34,6 +37,7 @@ public class Pagos extends JFrame {
 	private JButton bpagar;
 	private Calendar horaInicio, horaFin, tiempoTotal;
 	private float preciototal;
+	private JTextField textField_1;
 	
 	/**
 	 * Create the frame.
@@ -103,19 +107,27 @@ public class Pagos extends JFrame {
 		contentPane.add(txtiempo);
 		txtiempo.setColumns(10);
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(199, 263, 141, 77);
-		contentPane.add(panel);
-		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(382, 263, 136, 77);
-		contentPane.add(panel_1);
+		JPanel cambio = new JPanel();
+		cambio.setBounds(382, 263, 136, 77);
+		contentPane.add(cambio);
 		
 		bpagar = new JButton("Pagar y salir del parking");
 		
 		
 		bpagar.setBounds(175, 390, 193, 52);
 		contentPane.add(bpagar);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(199, 300, 139, 40);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
+		
+		JLabel lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4.setBounds(232, 263, 81, 26);
+		contentPane.add(lblNewLabel_4);
+		
+		adaptadores();
+		
 	}
 	@Override
 	public void setVisible(boolean b) {
@@ -124,6 +136,7 @@ public class Pagos extends JFrame {
 				horaInicio.get(Calendar.SECOND));
 		super.setVisible(b);
 	}
+	
 	
 	public void adaptadores(){
 		bparar.addMouseListener(new MouseAdapter() {
